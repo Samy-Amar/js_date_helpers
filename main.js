@@ -58,22 +58,20 @@ Date.prototype.atEndOfDay = function(){
   return new Date(this.setHours(23,59,59,999) + (offset * 3600000));
 }
 
-// // At_beginning_of_week
-// Number.prototype.num = function(dec){
-//     return number_format(this.toString(), dec);
+// At_beginning_of_week
+Date.prototype.atBeginningOfWeek = function(){
+  diff = this.getDate() - this.getDay() + (this.getDay() == 0 ? -6:1); // adjust when day is sunday
+  return (new Date(this.setDate(diff))).atBeginningOfDay();
+}
+// Date.prototype.atEndOfWeek = function(){
 // }
 
-// // At_end_of_week
-// Number.prototype.num = function(dec){
-//     return number_format(this.toString(), dec);
+// // // At_beginning_of_year
+// Date.prototype.atBeginningOfYear = function(){
+//   var offset = -(this.getTimezoneOffset() / 60);
+//   return new Date(this.setHours(0,0,0,0) + (offset * 3600000));
 // }
-
-// // At_beginning_of_year
-// Number.prototype.num = function(dec){
-//     return number_format(this.toString(), dec);
-// }
-
-// At_end_of_year
-// Number.prototype.num = function(dec){
-//     return number_format(this.toString(), dec);
+// Date.prototype.atEndOfYear = function(){
+//   var offset = -(this.getTimezoneOffset() / 60);
+//   return new Date(this.setHours(23,59,59,999) + (offset * 3600000));
 // }
